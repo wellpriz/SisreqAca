@@ -21,7 +21,7 @@ class RequerimentosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Tiposrequerimentos', 'Setores', 'Cursos']
+            'contain' => ['Tiposrequerimentos', 'Setores', 'Users', 'Cursos']
         ];
         $requerimentos = $this->paginate($this->Requerimentos);
 
@@ -38,7 +38,7 @@ class RequerimentosController extends AppController
     public function view($id = null)
     {
         $requerimento = $this->Requerimentos->get($id, [
-            'contain' => ['Tiposrequerimentos', 'Setores', 'Cursos']
+            'contain' => ['Tiposrequerimentos', 'Setores', 'Users', 'Cursos']
         ]);
 
         $this->set('requerimento', $requerimento);
@@ -63,8 +63,9 @@ class RequerimentosController extends AppController
         }
         $tiposrequerimentos = $this->Requerimentos->Tiposrequerimentos->find('list', ['limit' => 200]);
         $setores = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
+        $users = $this->Requerimentos->Users->find('list', ['limit' => 200]);
         $cursos = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
-        $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'cursos'));
+        $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'users', 'cursos'));
     }
 
     /**
@@ -90,8 +91,9 @@ class RequerimentosController extends AppController
         }
         $tiposrequerimentos = $this->Requerimentos->Tiposrequerimentos->find('list', ['limit' => 200]);
         $setores = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
+        $users = $this->Requerimentos->Users->find('list', ['limit' => 200]);
         $cursos = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
-        $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'cursos'));
+        $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'users', 'cursos'));
     }
 
     /**

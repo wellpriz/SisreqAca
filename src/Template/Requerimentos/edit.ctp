@@ -18,6 +18,8 @@
         <li><?= $this->Html->link(__('New Tiposrequerimento'), ['controller' => 'Tiposrequerimentos', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Setores'), ['controller' => 'Setores', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Setore'), ['controller' => 'Setores', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Cursos'), ['controller' => 'Cursos', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Curso'), ['controller' => 'Cursos', 'action' => 'add']) ?></li>
     </ul>
@@ -29,9 +31,9 @@
         <?php
             echo $this->Form->control('tiposrequerimentos_id', ['options' => $tiposrequerimentos]);
             echo $this->Form->control('setores_id', ['options' => $setores]);
-            echo $this->Form->control('Solicitante');
+            echo $this->Form->control('users_id', ['options' => $users]);
             echo $this->Form->control('cursos_id', ['options' => $cursos]);
-            echo $this->Form->control('cpf');
+            echo $this->Form->control('justificativa');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

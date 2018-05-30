@@ -9,14 +9,15 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $tiposrequerimentos_id
  * @property int $setores_id
- * @property string $Solicitante
+ * @property int $users_id
  * @property int $cursos_id
- * @property int $cpf
+ * @property string $justificativa
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Tiposrequerimento $tiposrequerimento
  * @property \App\Model\Entity\Setore $setore
+ * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Curso $curso
  */
 class Requerimento extends Entity
@@ -34,13 +35,14 @@ class Requerimento extends Entity
     protected $_accessible = [
         'tiposrequerimentos_id' => true,
         'setores_id' => true,
-        'Solicitante' => true,
+        'users_id' => true,
         'cursos_id' => true,
-        'cpf' => true,
+        'justificativa' => true,
         'created' => true,
         'modified' => true,
         'tiposrequerimento' => true,
         'setore' => true,
+        'user' => true,
         'curso' => true
     ];
 }

@@ -27,6 +27,7 @@ class RequerimentosTableTest extends TestCase
         'app.requerimentos',
         'app.tiposrequerimentos',
         'app.setores',
+        'app.users',
         'app.cursos'
     ];
 

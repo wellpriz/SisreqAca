@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\TiposrequerimentosTable|\Cake\ORM\Association\BelongsTo $Tiposrequerimentos
  * @property \App\Model\Table\SetoresTable|\Cake\ORM\Association\BelongsTo $Setores
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
  * @property \App\Model\Table\CursosTable|\Cake\ORM\Association\BelongsTo $Cursos
  *
  * @method \App\Model\Entity\Requerimento get($primaryKey, $options = [])
@@ -50,6 +51,10 @@ class RequerimentosTable extends Table
             'foreignKey' => 'setores_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Users', [
+            'foreignKey' => 'users_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('Cursos', [
             'foreignKey' => 'cursos_id',
             'joinType' => 'INNER'
@@ -69,15 +74,9 @@ class RequerimentosTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->scalar('Solicitante')
-            ->maxLength('Solicitante', 45)
-            ->requirePresence('Solicitante', 'create')
-            ->notEmpty('Solicitante');
-
-        $validator
-            ->integer('cpf')
-            ->requirePresence('cpf', 'create')
-            ->notEmpty('cpf');
+            ->scalar('justificativa')
+            ->requirePresence('justificativa', 'create')
+            ->notEmpty('justificativa');
 
         return $validator;
     }
@@ -93,6 +92,7 @@ class RequerimentosTable extends Table
     {
         $rules->add($rules->existsIn(['tiposrequerimentos_id'], 'Tiposrequerimentos'));
         $rules->add($rules->existsIn(['setores_id'], 'Setores'));
+        $rules->add($rules->existsIn(['users_id'], 'Users'));
         $rules->add($rules->existsIn(['cursos_id'], 'Cursos'));
 
         return $rules;

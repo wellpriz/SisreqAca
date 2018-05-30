@@ -19,6 +19,7 @@ class RequerimentosControllerTest extends IntegrationTestCase
         'app.requerimentos',
         'app.tiposrequerimentos',
         'app.setores',
+        'app.users',
         'app.cursos'
     ];
 
