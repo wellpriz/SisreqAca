@@ -42,6 +42,7 @@ class RequerimentosController extends AppController
         ]);
 
         $this->set('requerimento', $requerimento);
+
     }
 
     /**

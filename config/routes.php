@@ -76,6 +76,12 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 
 /**
+Router::connect('/requerimentos', function ($routes) {
+$routes->connect('/view/*', ['controller' => 'Requerimentos', 'action' => 'view']);
+});
+ */
+
+/**
  * Load all plugin routes. See the Plugin documentation on
  * how to customize the loading of plugin routes.
  */
