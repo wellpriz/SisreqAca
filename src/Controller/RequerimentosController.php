@@ -21,7 +21,7 @@ class RequerimentosController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Tiposrequerimentos', 'Setores', 'Users', 'Cursos']
+            'contain' => ['Tiposrequerimentos', 'Setores', 'Cursos'],
         ];
         $requerimentos = $this->paginate($this->Requerimentos);
 
@@ -38,7 +38,7 @@ class RequerimentosController extends AppController
     public function view($id = null)
     {
         $requerimento = $this->Requerimentos->get($id, [
-            'contain' => ['Tiposrequerimentos', 'Setores', 'Users', 'Cursos']
+            'contain' => ['Tiposrequerimentos', 'Setores', 'Cursos'],
         ]);
 
         $this->set('requerimento', $requerimento);
@@ -62,9 +62,8 @@ class RequerimentosController extends AppController
             $this->Flash->error(__('The requerimento could not be saved. Please, try again.'));
         }
         $tiposrequerimentos = $this->Requerimentos->Tiposrequerimentos->find('list', ['limit' => 200]);
-        $setores = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
-        $users = $this->Requerimentos->Users->find('list', ['limit' => 200]);
-        $cursos = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
+        $setores            = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
+        $cursos             = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
         $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'users', 'cursos'));
     }
 
@@ -78,7 +77,7 @@ class RequerimentosController extends AppController
     public function edit($id = null)
     {
         $requerimento = $this->Requerimentos->get($id, [
-            'contain' => []
+            'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $requerimento = $this->Requerimentos->patchEntity($requerimento, $this->request->getData());
@@ -90,9 +89,8 @@ class RequerimentosController extends AppController
             $this->Flash->error(__('The requerimento could not be saved. Please, try again.'));
         }
         $tiposrequerimentos = $this->Requerimentos->Tiposrequerimentos->find('list', ['limit' => 200]);
-        $setores = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
-        $users = $this->Requerimentos->Users->find('list', ['limit' => 200]);
-        $cursos = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
+        $setores            = $this->Requerimentos->Setores->find('list', ['limit' => 200]);
+        $cursos             = $this->Requerimentos->Cursos->find('list', ['limit' => 200]);
         $this->set(compact('requerimento', 'tiposrequerimentos', 'setores', 'users', 'cursos'));
     }
 

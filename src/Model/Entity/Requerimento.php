@@ -34,15 +34,14 @@ class Requerimento extends Entity
      */
     protected $_accessible = [
         'tiposrequerimentos_id' => true,
-        'setores_id' => true,
-        'users_id' => true,
-        'cursos_id' => true,
-        'justificativa' => true,
-        'created' => true,
-        'modified' => true,
-        'tiposrequerimento' => true,
-        'setore' => true,
-        'user' => true,
-        'curso' => true
+        'setores_id'            => true,
+        'cursos_id'             => true,
+        'justificativa'         => true,
+        'created'               => true,
+        'modified'              => true,
+        'tiposrequerimento'     => true,
+        'setore'                => true,
+        'user'                  => true,
+        'curso'                 => true,
     ];
 }

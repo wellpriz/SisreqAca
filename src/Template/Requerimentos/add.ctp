@@ -25,7 +25,6 @@
         <?php
 echo $this->Form->control('tiposrequerimentos_id', ['options' => $tiposrequerimentos]);
 echo $this->Form->control('setores_id', ['options' => $setores]);
-// echo $this->Form->control('users_id', ['options' => $users]);
 echo $this->Form->control('cursos_id', ['options' => $cursos]);
 echo $this->Form->control('justificativa', ['placeholder' => 'Este campo é reservado para complementar o seu requerimento, seu preenchimento não é obrigatório']);
 ?>

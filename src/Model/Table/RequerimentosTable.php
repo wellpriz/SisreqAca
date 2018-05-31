@@ -1,7 +1,6 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
@@ -45,19 +44,15 @@ class RequerimentosTable extends Table
 
         $this->belongsTo('Tiposrequerimentos', [
             'foreignKey' => 'tiposrequerimentos_id',
-            'joinType' => 'INNER'
+            'joinType'   => 'INNER',
         ]);
         $this->belongsTo('Setores', [
             'foreignKey' => 'setores_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Users', [
-            'foreignKey' => 'users_id',
-            'joinType' => 'INNER'
+            'joinType'   => 'INNER',
         ]);
         $this->belongsTo('Cursos', [
             'foreignKey' => 'cursos_id',
-            'joinType' => 'INNER'
+            'joinType'   => 'INNER',
         ]);
     }
 
@@ -73,11 +68,6 @@ class RequerimentosTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->scalar('justificativa')
-            ->requirePresence('justificativa', 'create')
-            ->notEmpty('justificativa');
-
         return $validator;
     }
 
@@ -92,7 +82,6 @@ class RequerimentosTable extends Table
     {
         $rules->add($rules->existsIn(['tiposrequerimentos_id'], 'Tiposrequerimentos'));
         $rules->add($rules->existsIn(['setores_id'], 'Setores'));
-        $rules->add($rules->existsIn(['users_id'], 'Users'));
         $rules->add($rules->existsIn(['cursos_id'], 'Cursos'));
 
         return $rules;
